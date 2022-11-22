@@ -18,7 +18,7 @@ function dbConect(){
 
     function input($table,$c_id,$vol){
     $dbh= dbConect();
-    $sql ="SELECT * FROM `c_list` WHERE pack='($c_id)'";
+    $sql ="SELECT * FROM `c_list` WHERE c_name='$c_id'";
         $stmt = $dbh->query($sql);
         foreach($stmt as $low){
             $c_name = $low['c_name'];
@@ -29,9 +29,10 @@ function dbConect(){
     }
 
     @$t_name=$_POST['t_name'];
-    @$c_id= $_POST['id'];
+    @$c_name= $_POST['name'];
+    echo $c_name;
     @$c_vol =$_POST['vol'];
-    input($t_name,$c_id,$c_vol);
+    input($t_name,$c_name,$c_vol);
 
 ?>
 

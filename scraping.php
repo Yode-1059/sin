@@ -31,11 +31,11 @@
     //データ挿入
 function inInfo(){
 
-    for( $num = 1 ; $num <= 50; $num++ ){
+    for( $num = 1 ; $num <= 1; $num++ ){
     $dbh =dbConect();
-    $i = sprintf('%02d', $num);
+    $i = sprintf('%03d', $num);
     // echo $i;
-    $link ='https://dm.takaratomy.co.jp/card/detail/?id=dm22ex1-Cho'.$i;
+    $link ='https://dm.takaratomy.co.jp/card/detail/?id=dmex08-245';
     // echo $link;
 
     $html = file_get_contents($link);//データを抽出したいURLを入力
@@ -110,8 +110,8 @@ function inInfo(){
     //   $power = '3000';
 
       //SQL文実行
-      $sql ="INSERT INTO `c_list`(`name`,`civ`, `cost`, `lace`, `type`, `effect`, `power`,`pack`) VALUES ('".$name."','".$civ."','".$cost."','".$lace."','".$type."','".$effect."','".$power."','".$pack."')";
-    //   echo "<br>",$sql;
+      $sql ="INSERT INTO `c_list`(`c_name`,`civ`, `cost`, `lace`, `type`, `effect`, `power`,`pack`) VALUES ('".$name."','".$civ."','".$cost."','".$lace."','".$type."','".$effect."','".$power."','".$pack."')";
+      echo "<br>",$sql;
         $dbh->query($sql);
         }
     }

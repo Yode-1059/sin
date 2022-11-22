@@ -29,16 +29,27 @@ function dbConect(){
 
     function listup(){
         $dbh=dbConect();
-        echo `<select name="card">`;
-        $sql ='SELECT * FROM `箱の中`';
-        echo $sql;
+        @$t_name=$_POST['t_name'];
+    echo $t_name."の中身<br>";
+        $sql ='SELECT * FROM '.$t_name.'';
+        echo '<form action="table_clean.php" method="post">';
+        echo '<select name="card">';
         $stmt = $dbh->query($sql);
         foreach($stmt as $node){
             $name =$node['c_name'];
-            echo $name;
-            echo `<option.$name.</option>`;
+            $vol=$node['vol'];
+            echo '<option value="'.$name.'" name="name">';
+            echo $name."　".$vol."枚";
+            echo '</option>';
         }
-        echo "</select>";
+        echo "</select><br>";
+        echo' <input type="hidden" name="t_name" value="'.$t_name.'">
+        <input type="submit" name="リストアップ" id="" value="これを消す">
+        </form>';
+        echo '<form action="table_in.php" method="post">
+        <input type="hidden" name="t_name" value="'.$t_name.'">
+        <input type="submit" name="リストアップ" id="" value="登録に戻る">
+        </form>';
     }
 
     listup();
