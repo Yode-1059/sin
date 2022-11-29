@@ -16,36 +16,40 @@ function dbConect(){
     return $dbh;
     }
 
-    function input($table,$c_id,$vol){
+    function input($table,$c_id,$vol,$loca){
     $dbh= dbConect();
     $sql ="SELECT * FROM `c_list` WHERE c_name='$c_id'";
         $stmt = $dbh->query($sql);
         foreach($stmt as $low){
             $c_name = $low['c_name'];
             $c_no = $low['pack'];
-            $sql = "INSERT INTO `$table`(`c_name`, `vol`, `pack`) VALUES ('$c_name',$vol,'$c_no')";
+            $sql = "INSERT INTO `$table`(`c_name`, `vol`, `pack`,`loca`,`memo`) VALUES ('$c_name',$vol,'$c_no','$loca','')";
             $stmt = $dbh->query($sql);
+            echo $sql;
         }
+
     }
 
     @$t_name=$_POST['t_name'];
     @$c_name= $_POST['name'];
-    echo $c_name;
     @$c_vol =$_POST['vol'];
-    input($t_name,$c_name,$c_vol);
+    @$c_loca = $_POST['loca'];
 
+    input($t_name,$c_name,$c_vol,$c_loca);
 ?>
 
     <form action="table_in.php" method="post">
-        <p>カード番号入力<input type="text" name="id"><br>
-        <br>枚数<input type="number" name="vol">
+        <p>カード番号入力<input type="text" name="id"required><br>
+        枚数<input type="number" name="vol" required><br>
+         場所<input type="text" name="loca" ><br>
         <?php
             echo '<input type="hidden" name="t_name" value="'.$t_name.'">'?>
         <input type="submit" name="送信" id=""></p>
     </form>
         <form action="table_in_name.php" method="post">
-        <p>カード名入力　部分一致可能<input type="text" name="name"><br>
-        <br>枚数<input type="number" name="vol">
+        <p>カード名入力　部分一致可能<input type="text" name="name" required><br>
+        枚数<input type="number" name="vol" required><br>
+         場所<input type="text" name="loca"><br>
         <?php
             echo '<input type="hidden" name="t_name" value="'.$t_name.'">'?>
         <input type="submit" name="送信" id=""></p>

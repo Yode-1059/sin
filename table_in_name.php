@@ -16,7 +16,7 @@ function dbConect(){
     return $dbh;
     }
 
-    function input($table,$c_,$vol){
+    function input($table,$c_,$vol,$loca){
     $dbh= dbConect();
     $sql ="SELECT * FROM `c_list` WHERE c_name LIKE '%$c_%'";
         $stmt = $dbh->query($sql);
@@ -30,6 +30,7 @@ function dbConect(){
         }
         echo '</select><input value="'.$vol.'" name="vol" type="hidden">
             <input value="'.$table.'" name="t_name" type="hidden">
+            <input value="'.$loca.'" name="loca" type="hidden">
             <input type="submit" value="決定"></form>';
     }
 
@@ -37,6 +38,7 @@ function dbConect(){
     echo $t_name;
     @$c_name= $_POST['name'];
     @$c_vol =$_POST['vol'];
-    input($t_name,$c_name,$c_vol);
+    @$c_loca=$_POST['loca'];
+    input($t_name,$c_name,$c_vol,$c_loca);
 
 ?>

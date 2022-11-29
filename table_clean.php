@@ -28,7 +28,6 @@ function dbConect(){
     $c_name= $_POST['name'];
     echo "カード名：".$c_name."<br>";
 
-
     crean($t_name,$c_name);
 
     ?>

@@ -31,22 +31,33 @@ function dbConect(){
     $sql ="CREATE TABLE $l_name(
         c_name varchar(100),
         vol INT(3),
-        pack varchar(30))";
+        pack varchar(30),
+        loca varchar(200))";
     $dbh->query($sql);
     echo $sql;
     global $l_name;
-
     }
 
-    @$c_name = $_POST['table_name'];
-    c_list($c_name);
+    @$t_name = $_POST['table_name'];
+    c_list($t_name);
+    // http_response_code( 301 );
+    // header('Location:http://localhost/sin/table_in.php?t_name='.$t_name.'');
 
 ?>
     <form action="table_in.php" method="post">
         <p>カード番号入力<input type="text" name="id"><br>
-        <br>枚数<input type="number" name="vol">
+        枚数<input type="number" name="vol"><br>
+         場所<input type="text" name="loca"><br>
         <?php
-            echo '<input type="hidden" name="t_name" value="'.$c_name.'">'?>
+            echo '<input type="hidden" name="t_name" value="'.$t_name.'">'?>
+        <input type="submit" name="送信" id=""></p>
+    </form>
+    <form action="table_in_name.php" method="post">
+        <p>カード名入力　部分一致可能<input type="text" name="name"><br>
+        枚数<input type="number" name="vol"><br>
+        場所<input type="text" name="loca"><br>
+        <?php
+            echo '<input type="hidden" name="t_name" value="'.$t_name.'">'?>
         <input type="submit" name="送信" id=""></p>
     </form>
 </body>
