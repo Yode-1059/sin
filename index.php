@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-<?php
 
-    function dbConect(){
+
+<body>
+    <?php
+function dbConect(){
     $dsn ='mysql:dbname=card;host=localhost';
     $user = 'card_officer';
     $pass = 'card';
+
 
     try{
         $dbh = new PDO($dsn, $user, $pass);
@@ -25,81 +27,42 @@
     }
     return $dbh;
     }
+
+    function c_list($l_name){
     $dbh= dbConect();
-    $sql = "CREATE user 'root'@'localhost'";
-    $dbh ->query($sql);
+    $sql ="CREATE TABLE $l_name(
+        c_name varchar(100),
+        vol INT(3),
+        pack varchar(30),
+        loca varchar(200),
+        memo varchar(1000)
+        )";
+    $dbh->query($sql);
     echo $sql;
-        $link ='https://dm.takaratomy.co.jp/card/detail/?id=dmex08-245';
-
-    $link ='https://dm.takaratomy.co.jp/card/detail/?id=dmex08-245';
-
-    $html = file_get_contents($link);
-    $dom = new DOMDocument('1.0', 'UTF-8');
-    $dom->loadHTML($html);
-    $xpath = new DOMXpath($dom);
-
-
-
-    foreach($xpath->query('//th[@class="cardname"]') as $node){
-
-    $name = $node->nodeValue;
-    echo 'クリーチャー名：',$name,'<br>';
-
+    global $l_name;
     }
 
-    foreach($xpath->query('//td[@class="typetxt"]') as $node){
+    @$t_name = $_POST['table_name'];
+    c_list($t_name);
+    // http_response_code( 301 );
+    // header('Location:http://localhost/sin/table_in.php?t_name='.$t_name.'');
 
-    $type = $node->nodeValue;
-    echo 'カードタイプ：',$type,'<br>';
-    }
-
-    foreach($xpath->query('//td[@class="civtxt"]') as $node){
-
-    $civ = $node->nodeValue;
-    echo '文明：',$civ,'<br>';
-    }
-
-    foreach($xpath->query('//td[@class="powertxt"]') as $node){
-
-    $power = $node->nodeValue;
-    echo 'パワー：',$power,'<br>';
-
-    }
-
-    foreach($xpath->query('//td[@class="costtxt"]') as $node){
-
-    $cost = $node->nodeValue;
-    echo 'コスト：',$cost,'<br>';
-
-    }
-
-    foreach($xpath->query('//td[@class="racetxt"]') as $node){
-
-    $race = $node->nodeValue;
-    echo '種族：',$race,'<br>';
-
-    }
-
-    foreach($xpath->query('//td[@class="abilitytxt"]') as $node){
-
-    $effect = $node->nodeValue;
-    echo '効果：',$effect,'<br>';
-
-    }
-
-    foreach($xpath->query('//td[@class="flavortxt"]') as $node){
-
-    $ftxt = $node->nodeValue;
-    echo 'フレーバーテキスト：',$ftxt,'<br>';
-
-    }
-
-    foreach($xpath->query('//span[@class="packname"]') as $node){
-
-    $pack = $node->nodeValue;
-    echo '収録パック：',$pack,'<br>';
-
-    }
-    ?>
+?>
+    <form action="table_in.php" method="post">
+        <p>カード番号入力<input type="text" name="id"><br>
+        枚数<input type="number" name="vol"><br>
+         場所<input type="text" name="loca"><br>
+        <?php
+            echo '<input type="hidden" name="t_name" value="'.$t_name.'">'?>
+        <input type="submit" name="送信" id=""></p>
+    </form>
+    <form action="table_in_name.php" method="post">
+        <p>カード名入力　部分一致可能<input type="text" name="name"><br>
+        枚数<input type="number" name="vol"><br>
+        場所<input type="text" name="loca"><br>
+        <?php
+            echo '<input type="hidden" name="t_name" value="'.$t_name.'">'?>
+        <input type="submit" name="送信" id=""></p>
+    </form>
 </body>
 </html>

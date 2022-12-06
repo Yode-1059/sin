@@ -30,8 +30,11 @@ function dbConect(){
     function listup(){
         $dbh=dbConect();
         @$t_name=$_POST['t_name'];
-    echo $t_name."の中身<br>";
-        $sql ='SELECT * FROM '.$t_name.'';
+        @$u_name=$_POST['u_name'];
+        @$psword=$_POST['pass'];
+        echo $t_name."の中身<br>";
+        $sql ="SELECT * FROM $u_name$t_name$psword";
+        echo $sql;
         echo '<form action="table_clean.php" method="post">';
         echo '<select name="card">';
         $stmt = $dbh->query($sql);

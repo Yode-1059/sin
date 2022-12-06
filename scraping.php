@@ -31,11 +31,11 @@
     //データ挿入
 function inInfo(){
 
-    for( $num = 1 ; $num <= 1; $num++ ){
+    for( $num = 1 ; $num <= 131; $num++ ){
     $dbh =dbConect();
     $i = sprintf('%03d', $num);
     // echo $i;
-    $link ='https://dm.takaratomy.co.jp/card/detail/?id=dmex08-245';
+    $link ='https://dm.takaratomy.co.jp/card/detail/?id=dm22ex01-'.$i.'';
     // echo $link;
 
     $html = file_get_contents($link);//データを抽出したいURLを入力
@@ -99,15 +99,6 @@ function inInfo(){
     // echo $pack,'<br>';
 
     }
-
-     //データ定義
-    //   $name = 'ペコタン';
-    //   $civ = '水';
-    //   $cost  = '4';
-    //   $lace = 'サイバーロード';
-    //   $type = 'クリーチャー';
-    //   $effect = 'カードを一枚引く';
-    //   $power = '3000';
 
       //SQL文実行
       $sql ="INSERT INTO `c_list`(`c_name`,`civ`, `cost`, `lace`, `type`, `effect`, `power`,`pack`) VALUES ('".$name."','".$civ."','".$cost."','".$lace."','".$type."','".$effect."','".$power."','".$pack."')";
