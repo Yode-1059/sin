@@ -34,8 +34,10 @@ function dbConect(){
         @$psword=$_POST['pass'];
         echo $t_name."の中身<br>";
         $sql ="SELECT * FROM $u_name$t_name$psword";
-        echo $sql;
-        echo '<form action="table_clean.php" method="post">';
+        echo '<form action="table_clean.php" method="post">
+        <input type="hidden" name="t_name" value="'.$t_name.'">
+        <input type="hidden" name="pass" value="'.$psword.'">
+        <input type="hidden" name="u_name" value="'.$u_name.'">';
         echo '<select name="card">';
         $stmt = $dbh->query($sql);
         foreach($stmt as $node){
@@ -45,12 +47,13 @@ function dbConect(){
             echo $name."　".$vol."枚";
             echo '</option>';
         }
-        echo "</select><br>";
-        echo' <input type="hidden" name="t_name" value="'.$t_name.'">
+        echo '</select><br>
         <input type="submit" name="リストアップ" id="" value="これを消す">
-        </form>';
-        echo '<form action="table_in.php" method="post">
+        </form>
+        <form action="table_in.php" method="post">
         <input type="hidden" name="t_name" value="'.$t_name.'">
+        <input type="hidden" name="pass" value="'.$psword.'">
+        <input type="hidden" name="u_name" value="'.$u_name.'">
         <input type="submit" name="リストアップ" id="" value="登録に戻る">
         </form>';
     }
