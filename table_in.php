@@ -16,6 +16,20 @@ function dbConect(){
     return $dbh;
     }
 
+    // function tcheck($user,$table,$ps){
+    //     $dbh =dbConect();
+    //     $sql = `$dbh->query(SHOW TABLES LIKE '$user$table$ps')`;
+    //     $low_c = $sql->num_rows;
+
+
+    //     if($low_c==0){
+    //         echo "そんなものはない";
+    //     }else{
+    //         echo "aru";
+    //     }
+    //     $came= $dbh->query($sql);
+    // }
+
     function input($user,$table,$ps,$c_id,$vol,$loca,$pri,$me){
     $dbh= dbConect();
     $sql ="SELECT * FROM `c_list` WHERE pack='($c_id)'";
@@ -39,6 +53,7 @@ function dbConect(){
     @$price=$_POST['price'];
     @$memo=$_POST['memo'];
 
+    // @tcheck($u_name,$t_name,$psword);
     @input($u_name,$t_name,$psword,$c_id,$c_vol,$c_loca,$price,$memo);
 
 ?>
@@ -59,7 +74,7 @@ function dbConect(){
         <p>カード名入力　部分一致可能<input type="text" name="c_name"><br>
         枚数<input type="number" name="vol"><br>
         場所<input type="text" name="loca"><br>
-        金額（あれば）<input type="text" name="price" value="0"><br>
+        金額（あれば）<input type="text" name="price" value=""><br>
         メモ（あれば）<input type="text" name="memo">
         <?php
             echo '<input type="hidden" name="t_name" value="'.$t_name.'"><input type="hidden" name="pass" value="'.$psword.'"><input type="hidden" name="u_name" value="'.$u_name.'">'?>
@@ -70,7 +85,7 @@ function dbConect(){
         <p>カード以外のものを登録<input type="text" name="c_name"><br>
         個数<input type="number" name="vol"><br>
         場所<input type="text" name="loca"><br>
-        金額（あれば）<input type="text" name="price" value="0"><br>
+        金額（あれば）<input type="text" name="price" value=""><br>
         メモ（あれば）<input type="text" name="memo">
         <?php
             echo '<input type="hidden" name="t_name" value="'.$t_name.'"><input type="hidden" name="pass" value="'.$psword.'"><input type="hidden" name="u_name" value="'.$u_name.'">'?>

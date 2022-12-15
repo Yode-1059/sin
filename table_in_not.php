@@ -22,8 +22,7 @@ function dbConect(){
             $stmt = $dbh->query($sql);
         echo $c_id;
         echo 'を登録したよ';
-        echo $sql;
-    }
+        }
 
     @$t_name=$_POST['t_name'];
     @$cd_name= $_POST['c_name'];
@@ -41,7 +40,7 @@ function dbConect(){
         <p>カード番号入力<input type="text" name="id"><br>
         枚数<input type="number" name="vol"><br>
         場所<input type="text" name="loca"><br>
-        金額（あれば）<input type="number" name="price" value="0"><br>
+        金額（あれば）<input type="number" name="price" value=""><br>
         メモ（あれば）<input type="text" name="memo">
         <?php
             echo '<input type="hidden" name="t_name" value="'.$t_name.'">
@@ -53,7 +52,7 @@ function dbConect(){
         <p>カード名入力　部分一致可能<input type="text" name="c_name"><br>
         枚数<input type="number" name="vol"><br>
         場所<input type="text" name="loca"><br>
-        金額（あれば）<input type="number" name="price" value="0"><br>
+        金額（あれば）<input type="number" name="price" value=""><br>
         メモ（あれば）<input type="text" name="memo">
         <?php
             echo '<input type="hidden" name="t_name" value="'.$t_name.'">
@@ -65,11 +64,12 @@ function dbConect(){
         <p>カード以外のものを登録<input type="text" name="c_name"><br>
         個数<input type="number" name="vol"><br>
         場所<input type="text" name="loca"><br>
-        金額（あれば）<input type="text" name="price" value="0"><br>
+        金額（あれば）<input type="text" name="price" value=""><br>
         メモ（あれば）<input type="text" name="memo">
         <?php
             echo '<input type="hidden" name="t_name" value="'.$t_name.'"><input type="hidden" name="pass" value="'.$psword.'"><input type="hidden" name="u_name" value="'.$u_name.'">'?>
         <input type="submit" name="送信" id=""></p>
+    </form>
     <form action="table_listup.php" method="post">
         <?php
         echo'<input type="hidden" name="t_name" value="'.$t_name.'">

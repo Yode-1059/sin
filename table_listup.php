@@ -32,6 +32,7 @@ function dbConect(){
         @$t_name=$_POST['t_name'];
         @$u_name=$_POST['u_name'];
         @$psword=$_POST['pass'];
+        $total=0;
         echo $t_name."の中身<br>";
         $sql ="SELECT * FROM $u_name$t_name$psword";
         echo '<form action="table_clean.php" method="post">
@@ -42,12 +43,23 @@ function dbConect(){
         $stmt = $dbh->query($sql);
         foreach($stmt as $node){
             $name =$node['c_name'];
+            $pri =$node['price'];
+            $place=$node['loca'];
+            $total=$total+$pri;
             $vol=$node['vol'];
             echo '<option value="'.$name.'" name="name">';
-            echo $name."　".$vol."枚";
+            echo $name."　".$vol."枚　";
+            if($pri!=NULL){
+                echo $pri."円　";
+            }
+            if($place!=NULL){
+                echo "場所：".$place;
+            }
             echo '</option>';
         }
+
         echo '</select><br>
+        合計金額：'.$total.'円<br>
         <input type="submit" name="リストアップ" id="" value="これを消す">
         </form>
         <form action="table_in.php" method="post">

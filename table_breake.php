@@ -25,20 +25,21 @@ function dbConect(){
     return $dbh;
     }
 
-    function c_list($l_name){
+    function breaken($user,$l_name,$ps){
     $dbh = dbConect();
-    $sql ="DROP TABLE $l_name";
+    $sql ="DROP TABLE $user$l_name$ps";
     $dbh->query($sql);
-    echo $sql;
-    global $l_name;
-
     }
 
     @$t_name = $_POST['table_name'];
-    c_list($t_name);
+    @$u_name=$_POST['u_name'];
+    @$psword=$_POST['pass'];
+    breaken($u_name,$t_name,$psword);
 
     echo '<br>テーブル名　'.$t_name.'は無くなりました';
-
+    echo '<form action="form.php" method="post">
+    <input type="submit" value="ホームへ戻る" >
+    </form>'
 ?>
 </body>
 </html>

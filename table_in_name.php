@@ -50,5 +50,11 @@ function dbConect(){
             <input value="'.$lc_oca.'" name="loca" type="hidden">
             <input type="hidden" name="memo" value="'.$memo.'">
             <input type="hidden" name="pricr" value="'.$price.'">
-            </form>';
+            </form>
+            <form action="table_in.php" method="post">
+        <input type="hidden" name="t_name" value="'.$t_name.'">
+        <input type="hidden" name="pass" value="'.$psword.'">
+        <input type="hidden" name="u_name" value="'.$u_name.'">
+        <input type="submit" name="リストアップ" id="" value="登録に戻る">
+        </form>';
 ?>

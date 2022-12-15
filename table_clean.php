@@ -32,7 +32,7 @@ function dbConect(){
 
     crean($t_name,$c_name,$u_name,$psword);
 
-    echo ' <form action="table_in.php" method="post">
+    echo '<form action="table_in.php" method="post">
         <input type="hidden" name="t_name" value="'.$t_name.'">
         <input type="hidden" name="pass" value="'.$psword.'">
         <input type="hidden" name="u_name" value="'.$u_name.'">
