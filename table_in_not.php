@@ -1,4 +1,5 @@
 <?php
+include("header.php");
 function dbConect()
 {
     $dsn = 'mysql:dbname=card;host=localhost';
@@ -7,9 +8,6 @@ function dbConect()
 
     try {
         $dbh = new PDO($dsn, $user, $pass);
-
-        // echo'接続<br>';
-
     } catch (PDOException $e) {
         echo 'エラー:' . $e->getMessage();
         exit();
@@ -39,50 +37,78 @@ input($u_name, $t_name, $psword, $cd_name, $c_vol, $c_loca, $price, $memo);
 ?>
 
 <form action="table_in.php" method="post">
-    <p>カード番号入力<input type="text" name="id"><br>
-        枚数<input type="number" name="vol"><br>
-        場所<input type="text" name="loca"><br>
-        金額（あれば）<input type="number" name="price" value=""><br>
-        メモ（あれば）<input type="text" name="memo">
-        <?php
-        echo '<input type="hidden" name="t_name" value="' . $t_name . '">
+    <p>カード番号入力<br>
+        <input type="text" name="id">
+    </p>
+    <p>枚数<br>
+        <input type="number" name="vol">
+    </p>
+    <p>場所<br>
+        <input type="text" name="loca">
+    </p>
+    <p>金額（あれば）<br>
+        <input type="text" name="price">
+    </p>
+    <p>メモ（あれば）<br>
+        <input type="text" name="memo">
+    </p>
+    <?php
+    echo '<input type="hidden" name="t_name" value="' . $t_name . '">
             <input type="hidden" name="pass" value="' . $psword . '">
             <input type="hidden" name="u_name" value="' . $u_name . '">' ?>
-        <input type="submit" name="送信" id="">
+    <p><input type="submit" name="送信" id="">
     </p>
 </form>
 <form action="table_in_name.php" method="post">
-    <p>カード名入力　部分一致可能<input type="text" name="c_name"><br>
-        枚数<input type="number" name="vol"><br>
-        場所<input type="text" name="loca"><br>
-        金額（あれば）<input type="number" name="price" value=""><br>
-        メモ（あれば）<input type="text" name="memo">
-        <?php
-        echo '<input type="hidden" name="t_name" value="' . $t_name . '">
-            <input type="hidden" name="pass" value="' . $psword . '">
-            <input type="hidden" name="u_name" value="' . $u_name . '">' ?>
-        <input type="submit" name="送信" id="">
+    <p>カード名入力　部分一致可能<br>
+        <input type="text" name="c_name">
+    </p>
+    <p>枚数<br>
+        <input type="number" name="vol">
+    </p>
+    <p>場所<br>
+        <input type="text" name="loca">
+    </p>
+    <p>金額（あれば）<br>
+        <input type="text" name="price">
+    </p>
+    <p>メモ（あれば）<br>
+        <input type="text" name="memo">
+    </p>
+    <?php
+    echo '<input type="hidden" name="t_name" value="' . $t_name . '"><input type="hidden" name="pass" value="' . $psword . '"><input type="hidden" name="u_name" value="' . $u_name . '">' ?>
+    <p><input type="submit" name="送信" id="">
     </p>
 </form>
 <form action="table_in_not.php" method="post">
-    <p>カード以外のものを登録<input type="text" name="c_name"><br>
-        個数<input type="number" name="vol"><br>
-        場所<input type="text" name="loca"><br>
-        金額（あれば）<input type="text" name="price" value=""><br>
-        メモ（あれば）<input type="text" name="memo">
-        <?php
-        echo '<input type="hidden" name="t_name" value="' . $t_name . '"><input type="hidden" name="pass" value="' . $psword . '"><input type="hidden" name="u_name" value="' . $u_name . '">' ?>
-        <input type="submit" name="送信" id="">
+    <p>カード以外のものを登録<br>
+        <input type="text" name="c_name">
+    </p>
+    <P>個数<br>
+        <input type="number" name="vol">
+    </p>
+    <p>場所<br>
+        <input type="text" name="loca">
+    </p>
+    <p>金額（あれば）<br>
+        <input type="text" name="price">
+    </p>
+    <p>メモ（あれば）<br>
+        <input type="text" name="memo">
+    </p>
+    <?php
+    echo '<input type="hidden" name="t_name" value="' . $t_name . '"><input type="hidden" name="pass" value="' . $psword . '"><input type="hidden" name="u_name" value="' . $u_name . '">' ?>
+    <p><input type="submit" name="送信" id="">
     </p>
 </form>
 <form action="table_listup.php" method="post">
     <?php
-    echo '<input type="hidden" name="t_name" value="' . $t_name . '">
-        <input type="hidden" name="pass" value="' . $psword . '">
-        <input type="hidden" name="u_name" value="' . $u_name . '">'
+    echo '<input type="hidden" name="t_name" value="' . $t_name . '"><input type="hidden" name="pass" value="' . $psword . '"><input type="hidden" name="u_name" value="' . $u_name . '"><p>現在のテーブル：' . $t_name . '</p> '
         ?>
     <br><input type="submit" name="リストアップ" id="" value="リストアップ"></p>
 </form>
 <form action="form.php" method="post">
     <input type="submit" value="ホームへ戻る">
 </form>
+
+<?php include("footer.php"); ?>

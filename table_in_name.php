@@ -1,4 +1,5 @@
 <?php
+include("header.php");
 function dbConect(){
     $dsn ='mysql:dbname=card;host=localhost';
     $user = 'card_officer';
@@ -57,4 +58,5 @@ function dbConect(){
         <input type="hidden" name="u_name" value="'.$u_name.'">
         <input type="submit" name="リストアップ" id="" value="登録に戻る">
         </form>';
+include("footer.php");
 ?>
