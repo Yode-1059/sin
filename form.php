@@ -8,9 +8,6 @@ function dbConect()
 
     try {
         $dbh = new PDO($dsn, $user, $pass);
-
-        // echo'接続<br>';
-
     } catch (PDOException $e) {
         echo 'エラー:' . $e->getMessage();
         exit();
@@ -18,6 +15,7 @@ function dbConect()
     return $dbh;
 }
 @$u_name = $_POST['u_name'];
+echo $u_name;
 @$psword = $_POST['pass'];
 @$state = $_POST['state'];
 
@@ -25,7 +23,6 @@ if ($state == 'not') {
     $sql = 'INSERT INTO `user_info` (`user`, `pass`) VALUES ("' . $u_name . '", "' . $psword . '")';
     $dbh = dbConect();
     $dbh->query($sql);
-    echo $sql;
 }
 $dbh = dbConect();
 $sql = 'SELECT * FROM `user_info` WHERE `user`="' . $u_name . '" AND `pass`="' . $psword . '"';
@@ -75,8 +72,5 @@ foreach ( $stmt as $low) {
             <input type="submit" value="入力に戻る">
         </form>';
     }
-
-
-
 
 include("footer.php"); ?>

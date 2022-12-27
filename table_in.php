@@ -144,6 +144,8 @@ function input($user, $table, $ps, $c_id, $vol, $loca, $pri, $me)
         </form>
         <form action="form.php" method="post">
             <input type="submit" value="ホームへ戻る">
+            <?php echo '<input type="hidden" name="pass" value="' . $psword . '">
+            <input type="hidden" name="u_name" value="' . $u_name . '">'?>
         </form>
     </div>
 </div>

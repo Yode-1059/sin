@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
-    <title></title>
+    <title>カード管理</title>
 </head>
 
 <style>
@@ -21,15 +21,20 @@ input {
 }
 
 body {
-    /* margin-top: 10px;
-    display: flex;
-    justify-content: space-between; */
     font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+p {
+    font-size: 14px;
+}
+
+input {
+    font-size: 14px;
 }
 </style>
 
 <body class="">
-    <header class="py-3 bg-secondary bg-gradient mb-2 text-white">
+    <header class="py-3 bg-secondary mb-2 text-white">
         <div class="container">
             <h1>カード管理</h1>
         </div>

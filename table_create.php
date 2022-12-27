@@ -109,13 +109,13 @@ c_list($u_name, $t_name, $psword);
     </form>
     <div>
         <form action="table_listup.php" method="post">
-            <?php
-    echo '<input type="hidden" name="t_name" value="' . $t_name . '"><input type="hidden" name="pass" value="' . $psword . '"><input type="hidden" name="u_name" value="' . $u_name . '"><p>現在のテーブル：' . $t_name . '</p> '
-        ?>
+            <?php echo '<input type="hidden" name="t_name" value="' . $t_name . '"><input type="hidden" name="pass" value="' . $psword . '"><input type="hidden" name="u_name" value="' . $u_name . '"><p>現在のテーブル：' . $t_name . '</p> '?>
             <br><input type="submit" name="リストアップ" id="" value="リストアップ"></p>
         </form>
         <form action="form.php" method="post">
             <input type="submit" value="ホームへ戻る">
+            <?php echo '<input type="hidden" name="pass" value="' . $psword . '">
+            <input type="hidden" name="u_name" value="' . $u_name . '">'?>
         </form>
     </div>
 </div>

@@ -21,7 +21,6 @@ function listup()
     @$t_name = $_POST['t_name'];
     @$u_name = $_POST['u_name'];
     @$psword = $_POST['pass'];
-    echo $psword;
     $sql = "SELECT * FROM $u_name$t_name$psword";
     $che = NULL;
     $stmt = $dbh->query($sql);
