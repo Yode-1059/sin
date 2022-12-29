@@ -36,79 +36,84 @@ function input($user, $table, $ps, $c_id, $vol, $loca, $pri, $me)
 input($u_name, $t_name, $psword, $cd_name, $c_vol, $c_loca, $price, $memo);
 ?>
 
-<form action="table_in.php" method="post">
-    <p>カード番号入力<br>
-        <input type="text" name="id">
-    </p>
-    <p>枚数<br>
-        <input type="number" name="vol">
-    </p>
-    <p>場所<br>
-        <input type="text" name="loca">
-    </p>
-    <p>金額（あれば）<br>
-        <input type="text" name="price">
-    </p>
-    <p>メモ（あれば）<br>
-        <input type="text" name="memo">
-    </p>
-    <?php
+<div class="d-flex justify-content-between">
+    <form action="table_in.php" method="post">
+        <p>カード番号入力<br>
+            <input type="text" name="id">
+        </p>
+        <p>枚数<br>
+            <input type="number" name="vol">
+        </p>
+        <p>場所<br>
+            <input type="text" name="loca">
+        </p>
+        <p>金額（あれば）<br>
+            <input type="text" name="price">
+        </p>
+        <p>メモ（あれば）<br>
+            <input type="text" name="memo">
+        </p>
+        <?php
     echo '<input type="hidden" name="t_name" value="' . $t_name . '">
             <input type="hidden" name="pass" value="' . $psword . '">
             <input type="hidden" name="u_name" value="' . $u_name . '">' ?>
-    <p><input type="submit" name="送信" id="">
-    </p>
-</form>
-<form action="table_in_name.php" method="post">
-    <p>カード名入力　部分一致可能<br>
-        <input type="text" name="c_name">
-    </p>
-    <p>枚数<br>
-        <input type="number" name="vol">
-    </p>
-    <p>場所<br>
-        <input type="text" name="loca">
-    </p>
-    <p>金額（あれば）<br>
-        <input type="text" name="price">
-    </p>
-    <p>メモ（あれば）<br>
-        <input type="text" name="memo">
-    </p>
-    <?php
+        <p><input type="submit" name="送信" id="">
+        </p>
+    </form>
+    <form action="table_in_name.php" method="post">
+        <p>カード名入力　部分一致可能<br>
+            <input type="text" name="c_name">
+        </p>
+        <p>枚数<br>
+            <input type="number" name="vol">
+        </p>
+        <p>場所<br>
+            <input type="text" name="loca">
+        </p>
+        <p>金額（あれば）<br>
+            <input type="text" name="price">
+        </p>
+        <p>メモ（あれば）<br>
+            <input type="text" name="memo">
+        </p>
+        <?php
     echo '<input type="hidden" name="t_name" value="' . $t_name . '"><input type="hidden" name="pass" value="' . $psword . '"><input type="hidden" name="u_name" value="' . $u_name . '">' ?>
-    <p><input type="submit" name="送信" id="">
-    </p>
-</form>
-<form action="table_in_not.php" method="post">
-    <p>カード以外のものを登録<br>
-        <input type="text" name="c_name">
-    </p>
-    <P>個数<br>
-        <input type="number" name="vol">
-    </p>
-    <p>場所<br>
-        <input type="text" name="loca">
-    </p>
-    <p>金額（あれば）<br>
-        <input type="text" name="price">
-    </p>
-    <p>メモ（あれば）<br>
-        <input type="text" name="memo">
-    </p>
-    <?php
+        <p><input type="submit" name="送信" id="">
+        </p>
+    </form>
+    <form action="table_in_not.php" method="post">
+        <p>カード以外のものを登録<br>
+            <input type="text" name="c_name">
+        </p>
+        <P>個数<br>
+            <input type="number" name="vol">
+        </p>
+        <p>場所<br>
+            <input type="text" name="loca">
+        </p>
+        <p>金額（あれば）<br>
+            <input type="text" name="price">
+        </p>
+        <p>メモ（あれば）<br>
+            <input type="text" name="memo">
+        </p>
+        <?php
     echo '<input type="hidden" name="t_name" value="' . $t_name . '"><input type="hidden" name="pass" value="' . $psword . '"><input type="hidden" name="u_name" value="' . $u_name . '">' ?>
-    <p><input type="submit" name="送信" id="">
-    </p>
-</form>
-<form action="table_listup.php" method="post">
-    <?php
+        <p><input type="submit" name="送信" id="">
+        </p>
+    </form>
+    <div>
+        <form action="table_listup.php" method="post">
+            <?php
     echo '<input type="hidden" name="t_name" value="' . $t_name . '"><input type="hidden" name="pass" value="' . $psword . '"><input type="hidden" name="u_name" value="' . $u_name . '"><p>現在のテーブル：' . $t_name . '</p> '
         ?>
-    <br><input type="submit" name="リストアップ" id="" value="リストアップ"></p>
-</form>
-<form action="form.php" method="post">
-    <input type="submit" value="ホームへ戻る">
-</form>
-
+            <br><input type="submit" name="リストアップ" id="" value="リストアップ"></p>
+        </form>
+        <form action="form.php" method="post">
+            <input type="submit" value="ホームへ戻る">
+            <?php echo '<input type="hidden" name="pass" value="' . $psword . '">
+            <input type="hidden" name="u_name" value="' . $u_name . '">'?>
+        </form>
+    </div>
+</div>
 <?php include("footer.php"); ?>
