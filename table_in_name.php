@@ -1,8 +1,8 @@
 <?php
 include("header.php");
 function dbConect(){
-    $dsn ='mysql:dbname=card;host=localhost';
-    $user = 'card_officer';
+    $dsn ='mysql:host=mysql209.phy.lolipop.lan;dbname=LAA1416052-card';
+    $user = 'LAA1416052';
     $pass = 'card';
 
     try{

@@ -2,8 +2,8 @@
 
 function dbConect()
 {
-    $dsn = 'mysql:dbname=card;host=localhost';
-    $user = 'card_officer';
+    $dsn ='mysql:host=mysql209.phy.lolipop.lan;dbname=LAA1416052-card';
+    $user = 'LAA1416052';
     $pass = 'card';
 
     try {
@@ -15,7 +15,6 @@ function dbConect()
     return $dbh;
 }
 @$u_name = $_POST['u_name'];
-echo $u_name;
 @$psword = $_POST['pass'];
 @$state = $_POST['state'];
 
@@ -41,26 +40,26 @@ foreach ( $stmt as $low) {
     echo '<form action="table_create.php" method="post">
     <h3>新しいテーブルを作る</h3>
 
-    <p>作りたいテーブル名<input type="text" name="table_name" require></p>
+    <p>作りたいテーブル名<br><input type="text" name="table_name" require></p>
     <input type="hidden" name="u_name" value=' . $u_name . '>
     <input type="hidden" name="pass" value=' . $psword . '>
-    <input type="submit" value="作る">
+    <input type="submit" value="作る" class="sub">
     </p>
 </form>
 <form action="table_listup.php" method="post">
     <h3>テーブル確認</h3>
-    <p>見たいテーブル<input type="text" name="t_name"></p>
+    <p>見たいテーブル<br><input type="text" name="t_name"></p>
     <input type="hidden" name="u_name" value=' . $u_name . '>
     <input type="hidden" name="pass" value=' . $psword . '>
-    <input type="submit" value="表示">
+    <input type="submit" value="表示" class="sub">
     </p>
 </form>
 <form action="table_breake.php" method="post">
     <h3>テーブル解体</h3>
-    <p>壊したいテーブル名<input type="text" name="table_name" require></p>
+    <p>壊したいテーブル名<br><input type="text" name="table_name" require></p>
         <input type="hidden" name="u_name" value=' . $u_name . '>
     <input type="hidden" name="pass" value=' . $psword . '>
-    <input type="submit" value="解体する">
+    <input type="submit" value="解体する" class="sub">
 </form>
 <form action="login.php">
     <input type="submit" value="ログアウト">

@@ -12,12 +12,18 @@
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
     <title>カード管理</title>
 </head>
-
 <style>
+@charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap');
 
 input {
-    margin-bottom: 10px;
+    margin: 5px 0 10px;
+    font-size: 14px;
+}
+
+input[type="submit"] {
+    border: 1px #767676 solid;
+    border-radius: 0.25rem;
 }
 
 body {
@@ -28,15 +34,23 @@ p {
     font-size: 14px;
 }
 
-input {
-    font-size: 14px;
+.form {
+    margin: 0 15px;
 }
 </style>
 
 <body class="">
-    <header class="py-3 bg-secondary mb-2 text-white">
-        <div class="container">
+    <header class="py-3 bg-secondary mb-4 text-white">
+        <div class="container d-flex justify-content-between align-items-center">
             <h1>カード管理</h1>
+            <form action="howto.php" method="post">
+                <?php
+    @$t_name=$_POST['t_name'];
+    @$u_name=$_POST['u_name'];
+    @$psword=$_POST['pass'];
+    echo '<input type="hidden" name="t_name" value="' . $t_name . '"><input type="hidden" name="pass" value="' . $psword . '"><input type="hidden" name="u_name" value="' . $u_name . '">' ?>
+                <input class="sub" type="submit" value="このサイトの使い方" class="rounded-pill">
+            </form>
         </div>
     </header>
     <div class="container">

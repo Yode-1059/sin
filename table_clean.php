@@ -1,7 +1,8 @@
 <?php
+include("header.php");
 function dbConect(){
-    $dsn ='mysql:dbname=card;host=localhost';
-    $user = 'card_officer';
+    $dsn ='mysql:host=mysql209.phy.lolipop.lan;dbname=LAA1416052-card';
+    $user = 'LAA1416052';
     $pass = 'card';
 
     try{
@@ -19,7 +20,7 @@ function dbConect(){
     function crean($table,$card,$name,$ps){
         $dbh= dbConect();
         $sql ="DELETE FROM `$name$table$ps` WHERE `c_name` ='$card'";
-        echo $sql;
+
         $dbh->query($sql);
     }
 
@@ -28,7 +29,7 @@ function dbConect(){
     @$psword=$_POST['pass'];
     echo "テーブル：".$t_name."の<br>";
     $c_name= $_POST['card'];
-    echo "カード名：".$c_name."を削除したよ<br>";
+    echo "カード名：".$c_name."を削除しました<br>";
 
     crean($t_name,$c_name,$u_name,$psword);
 
@@ -38,4 +39,5 @@ function dbConect(){
         <input type="hidden" name="u_name" value="'.$u_name.'">
         <input type="submit" name="リストアップ" id="" value="登録に戻る">
         </form>';
+        include("footer.php");
     ?>

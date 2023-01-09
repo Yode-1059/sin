@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>テーブル破壊</title>
-</head>
-<body>
-     <?php
+    <?php
+    include("header.php");
 function dbConect(){
-    $dsn ='mysql:dbname=card;host=localhost';
-    $user = 'card_officer';
+    $dsn ='mysql:host=mysql209.phy.lolipop.lan;dbname=LAA1416052-card';
+    $user = 'LAA1416052';
     $pass = 'card';
 
     try{
@@ -39,7 +31,9 @@ function dbConect(){
     echo '<br>テーブル名　'.$t_name.'は無くなりました';
     echo '<form action="form.php" method="post">
     <input type="submit" value="ホームへ戻る" >
-    </form>'
+    <input type="hidden" name="t_name" value="' . $t_name . '">
+    <input type="hidden" name="pass" value="' . $psword . '">
+    <input type="hidden" name="u_name" value="' . $u_name . '">
+    </form>';
+    include("footer.php");
 ?>
-</body>
-</html>

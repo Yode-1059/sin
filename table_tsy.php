@@ -35,7 +35,7 @@
         vol INT(3),
         pack varchar(10))";
     $dbh->query($sql);
-    echo $sql;
+
 
     }
 
