@@ -65,7 +65,7 @@ foreach ( $stmt as $low) {
     <input type="hidden" name="title" value="テーブル解体｜">
 </form>
 <form action="./">
-    <input type="submit" value="ログアウト">
+    <input type="submit" value="ログアウト" class="sub">
 </form>
 ';
     } else {

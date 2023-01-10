@@ -76,7 +76,7 @@
     echo '<input type="hidden" name="t_name" value="' . $t_name . '"><input type="hidden" name="pass" value="' . $psword . '"><input type="hidden" name="u_name" value="' . $u_name . '"><h5>現在のテーブル</h5><p>' . $t_name . '</p> '
         ?>
             <input type="hidden" name="title" value="内容の確認｜">
-            <br><input type="submit" name="リストアップ" id="" value="リストアップ" class="sub"></p>
+            <br><input type="submit" name="リストアップ" id="" value="リストアップ" class="sub">
         </form>
         <form action="form.php" method="post">
             <input type="submit" value="ホームへ戻る" class="sub">
