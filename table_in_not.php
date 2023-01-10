@@ -37,5 +37,5 @@ input($u_name, $t_name, $psword, $cd_name, $c_vol, $c_loca, $price, $memo);
 
 <?php
 include("input.php");
+include("footer.php");
 ?>
-<?php include("footer.php"); ?>

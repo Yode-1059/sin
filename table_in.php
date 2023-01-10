@@ -69,7 +69,5 @@ function input($user, $table, $ps, $c_id, $vol, $loca, $pri, $me)
 ?>
 <?php
 include("input.php");
-?>
-<?php
 include("footer.php");
 ?>

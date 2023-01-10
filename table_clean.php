@@ -37,7 +37,8 @@ function dbConect(){
         <input type="hidden" name="t_name" value="'.$t_name.'">
         <input type="hidden" name="pass" value="'.$psword.'">
         <input type="hidden" name="u_name" value="'.$u_name.'">
-        <input type="submit" name="リストアップ" id="" value="登録に戻る">
+        <input type="submit" name="リストアップ" id="" value="登録に戻る" class="sub">
+        <input type="hidden" name="title" value="カード登録｜">
         </form>';
         include("footer.php");
     ?>

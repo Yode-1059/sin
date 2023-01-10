@@ -10,7 +10,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
-    <title>カード管理</title>
+
+    <title><?php $title = $_POST["title"];
+    echo $title;?>カード管理</title>
 </head>
 <style>
 @charset "UTF-8";
@@ -48,7 +50,10 @@ p {
     @$t_name=$_POST['t_name'];
     @$u_name=$_POST['u_name'];
     @$psword=$_POST['pass'];
-    echo '<input type="hidden" name="t_name" value="' . $t_name . '"><input type="hidden" name="pass" value="' . $psword . '"><input type="hidden" name="u_name" value="' . $u_name . '">' ?>
+    echo '<input type="hidden" name="t_name" value="' . $t_name . '">
+    <input type="hidden" name="pass" value="' . $psword . '">
+    <input type="hidden" name="u_name" value="' . $u_name . '">' ?>
+                <input type="hidden" name="title" value="このサイトの使い方｜">
                 <input class="sub" type="submit" value="このサイトの使い方" class="rounded-pill">
             </form>
         </div>

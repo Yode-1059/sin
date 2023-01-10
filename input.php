@@ -16,6 +16,7 @@
         <p>メモ（あれば）<br>
             <input type="text" name="memo">
         </p>
+        <input type="hidden" name="title" value="カード登録｜">
         <?php
     echo '<input type="hidden" name="t_name" value="' . $t_name . '">
             <input type="hidden" name="pass" value="' . $psword . '">
@@ -40,6 +41,7 @@
         <p>メモ（あれば）<br>
             <input type="text" name="memo">
         </p>
+        <input type="hidden" name="title" value="カード名検索｜">
         <?php
     echo '<input type="hidden" name="t_name" value="' . $t_name . '"><input type="hidden" name="pass" value="' . $psword . '"><input type="hidden" name="u_name" value="' . $u_name . '">' ?>
         <p><input type="submit" name="送信" id="" class="sub">
@@ -62,6 +64,7 @@
         <p>メモ（あれば）<br>
             <input type="text" name="memo">
         </p>
+        <input type="hidden" name="title" value="カード登録｜">
         <?php
     echo '<input type="hidden" name="t_name" value="' . $t_name . '"><input type="hidden" name="pass" value="' . $psword . '"><input type="hidden" name="u_name" value="' . $u_name . '">' ?>
         <p><input type="submit" name="送信" id="" class="sub">
@@ -72,10 +75,12 @@
             <?php
     echo '<input type="hidden" name="t_name" value="' . $t_name . '"><input type="hidden" name="pass" value="' . $psword . '"><input type="hidden" name="u_name" value="' . $u_name . '"><h5>現在のテーブル</h5><p>' . $t_name . '</p> '
         ?>
+            <input type="hidden" name="title" value="内容の確認｜">
             <br><input type="submit" name="リストアップ" id="" value="リストアップ" class="sub"></p>
         </form>
         <form action="form.php" method="post">
             <input type="submit" value="ホームへ戻る" class="sub">
+            <input type="hidden" name="title" value="ホーム｜">
             <?php echo '<input type="hidden" name="pass" value="' . $psword . '">
             <input type="hidden" name="u_name" value="' . $u_name . '">'?>
         </form>

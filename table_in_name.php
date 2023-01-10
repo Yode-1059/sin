@@ -43,7 +43,7 @@ function dbConect(){
     @$memo=$_POST['memo'];
     input($c_name);
     echo '</select>
-            <input type="submit" value="決定">
+            <input type="submit" value="決定" class="sub">
             <input type="hidden" name="pass" value="'.$psword.'">
             <input type="hidden" name="u_name" value="'.$u_name.'">
             <input value="'.$c_vol.'" name="vol" type="hidden">
@@ -56,7 +56,7 @@ function dbConect(){
         <input type="hidden" name="t_name" value="'.$t_name.'">
         <input type="hidden" name="pass" value="'.$psword.'">
         <input type="hidden" name="u_name" value="'.$u_name.'">
-        <input type="submit" name="リストアップ" id="" value="登録に戻る">
+        <input type="submit" name="リストアップ" id="" value="登録に戻る" class="sub">
         </form>';
 include("footer.php");
 ?>

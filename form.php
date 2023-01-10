@@ -44,30 +44,33 @@ foreach ( $stmt as $low) {
     <input type="hidden" name="u_name" value=' . $u_name . '>
     <input type="hidden" name="pass" value=' . $psword . '>
     <input type="submit" value="作る" class="sub">
+    <input type="hidden" name="title" value="カード登録｜">
     </p>
 </form>
 <form action="table_listup.php" method="post">
-    <h3>テーブル確認</h3>
+    <h3>テーブルの確認</h3>
     <p>見たいテーブル<br><input type="text" name="t_name"></p>
     <input type="hidden" name="u_name" value=' . $u_name . '>
     <input type="hidden" name="pass" value=' . $psword . '>
     <input type="submit" value="表示" class="sub">
+    <input type="hidden" name="title" value="内容の確認｜">
     </p>
 </form>
 <form action="table_breake.php" method="post">
-    <h3>テーブル解体</h3>
+    <h3>テーブルの解体</h3>
     <p>壊したいテーブル名<br><input type="text" name="table_name" require></p>
         <input type="hidden" name="u_name" value=' . $u_name . '>
     <input type="hidden" name="pass" value=' . $psword . '>
-    <input type="submit" value="解体する" class="sub">
+    <input type="submit" value="解体する" class="sub" id="del">
+    <input type="hidden" name="title" value="テーブル解体｜">
 </form>
-<form action="login.php">
+<form action="./">
     <input type="submit" value="ログアウト">
 </form>
 ';
     } else {
         echo '<p>パスワードかユーザー名が間違っています</p>
-            <form action="login.php">
+            <form action="./">
             <input type="submit" value="入力に戻る">
         </form>';
     }

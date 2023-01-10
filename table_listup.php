@@ -26,6 +26,7 @@ function listup(){
     $sql = "SELECT * FROM $u_name$t_name$psword";
     $name = 1;
     $stmt = $dbh->query($sql);
+    echo '<form action="table_clean.php" method="post">';
     foreach ( $stmt as $low) {
         @$name = $low['c_name'];
     }
@@ -36,14 +37,17 @@ function listup(){
     } else {
         $total = 0;
         $sql = "SELECT * FROM $u_name$t_name$psword WHERE NOT price LIKE '%node%'";
-        echo '<p class="mb-3">'.$t_name . "の中身</p>";
-        echo '<form action="table_clean.php" method="post">';
-        echo'<select name="card" class="mb-3 mw-100">';
         $stmt = $dbh->query($sql);
-        foreach ($stmt as $low) {
+        echo '<p class="mb-3">'.$t_name . 'の中身</p>
+        <input type="hidden" name="t_name" value="' . $t_name . '">
+            <input type="hidden" name="pass" value="' . $psword . '">
+            <input type="hidden" name="u_name" value="' . $u_name . '">
+            <select name="card" class="mb-3 mw-100">';
+                foreach ($stmt as $low) {
             $name = $low['c_name'];
             (int)$pri = (int)$low['price'];
             $place = $low['loca'];
+            $memo = $low['memo'];
             (int)$total = (int)$total + $pri;
             $vol = $low['vol'];
             echo '<option value="' . $name . '" name="name">';
@@ -54,18 +58,19 @@ function listup(){
             if ($place != NULL) {
                 echo "場所：" . $place;
             }
+            if ($memo != NULL) {
+                echo "メモ：" . $memo;
+            }
             echo '</option>';
-        }
-        echo $name;
-        if ($name == null) {
-            echo '</select><input type="hidden" name="t_name" value="' . $t_name . '">
-        <input type="hidden" name="pass" value="' . $psword . '">
-        <input type="hidden" name="u_name" value="' . $u_name . '"></form>';
-        } else {
+                }
+                if ($name == null) {
+            echo '</select></form>';
+                } else {
             echo '</select><br>
-        <p class="mb-3">合計金額：' . $total . '円</p>
-        <div class="d-flex justify-content-start">
-        <input class="me-4" type="submit" name="リストアップ" id="" value="これを消す" class="sub">
+            <p class="mb-3">合計金額：' . $total . '円</p>
+            <div class="d-flex justify-content-start">
+            <input class="me-4" type="submit" name="リストアップ" id="" value="これを消す"  class="sub" id="del">
+            <input type="hidden" name="title" value="カード削除｜">
         </form>';
         }
 
@@ -75,6 +80,7 @@ function listup(){
         <input type="hidden" name="pass" value="' . $psword . '">
         <input type="hidden" name="u_name" value="' . $u_name . '">
         <input type="submit" name="リストアップ" id="" value="登録に戻る" class="sub">
+        <input type="hidden" name="title" value="カード登録｜">
         </form>
         </div>';
     }
